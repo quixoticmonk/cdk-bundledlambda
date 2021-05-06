@@ -13,12 +13,5 @@ class CdkBundledlambdaStack(cdk.Stack):
             runtime=_lambda.Runtime.PYTHON_3_8,
             timeout=cdk.Duration.seconds(10),
             tracing=_lambda.Tracing.ACTIVE,
-            code=_lambda.Code.from_asset(
-                path="",
-                bundling=cdk.BundlingOptions(
-                    image=_lambda.Runtime.PYTHON_3_8.bundling_image,
-                    command=["bash", "c",
-                             " cd src && pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"]
-                )
-            )
+            code=_lambda.Code.asset("src/")
         )
