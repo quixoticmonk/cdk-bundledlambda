@@ -13,5 +13,5 @@ class CdkBundledlambdaStack(cdk.Stack):
             runtime=_lambda.Runtime.PYTHON_3_8,
             timeout=cdk.Duration.seconds(10),
             tracing=_lambda.Tracing.ACTIVE,
-            code=_lambda.Code.asset("src/")
+            code=_lambda.Code.from_asset("src/")
         )
